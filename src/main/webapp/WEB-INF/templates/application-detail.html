@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TVPSS Application Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: white;
+            --secondary-color: #41E8C0;
+            --background-color: #515B92;
+            --button-yellow: #FFC601;
+        }
+
+		a {
+			text-decoration: none !important;
+		}
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .navbar {
+            background-color: var(--background-color);
+            padding: 1.5rem 0;
+        }
+
+        .btn-apply {
+            background-color: var(--button-yellow);
+            color: black;
+            border-radius: 20px;
+            padding: 0.5rem 1.5rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            border: none;
+        }
+
+        .btn-apply:hover {
+            background-color: darkorange;
+            color: white;
+        }
+
+        .details-container {
+            padding: 2rem;
+        }
+
+        .application-details {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            color: var(--background-color);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .user-info-summary {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .status-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .status-pending {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .status-approved {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .status-rejected {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .detail-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background: #f8f9fa;
+        }
+
+        .detail-label {
+            font-weight: 500;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-value {
+            color: #333;
+        }
+
+        .status-message {
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .status-message.approved {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status-message.rejected {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+
+        .status-message h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+           	<a class="navbar-brand" th:href="@{/dashboard}"> 
+				<img th:src="@{/images/logonav.png}" alt="Logo">
+			</a>
+            <div class="d-flex align-items-center">
+                <span class="text-white me-3">Welcome, Ahmad bin Abdullah</span>
+                <a href="index.html" class="btn-apply">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Application Details Content -->
+    <div class="container details-container">
+        <div class="application-details">
+            <h2 class="section-title">Butiran Permohonan</h2>
+
+            <!-- Application Status -->
+            <div class="text-center mb-4">
+                <!-- Change class based on status -->
+                <span class="status-badge status-approved">Approved</span>
+                <!-- Alternative statuses: -->
+                <!-- <span class="status-badge status-pending">Pending</span> -->
+                <!-- <span class="status-badge status-rejected">Rejected</span> -->
+            </div>
+
+            <!-- Status-specific message -->
+            <div class="status-message approved">
+            
+                <!-- For Approved Applications -->
+                <h3>Tahniah! Permohonan Anda Telah Diluluskan</h3>
+                <p>Anda kini adalah sebahagian daripada pasukan TVPSS. Sila hadiri sesi taklimat pada 10 Januari 2025.</p>
+                
+                <!-- For Rejected Applications (hidden by default) -->
+                <!-- <div class="status-message rejected">
+                    <h3>Harap Maaf, Permohonan Anda Tidak Berjaya</h3>
+                    <p>Sebab: Kedudukan telah dipenuhi oleh pemohon lain.</p>
+                    <p>Anda digalakkan untuk memohon semula pada pembukaan permohonan akan datang.</p>
+                </div> -->
+            </div>
+
+            <!-- User Information Summary -->
+            <div class="user-info-summary">
+                <h5 class="mb-3">Maklumat Pemohon</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Nama:</strong> Ahmad bin Abdullah</p>
+                        <p><strong>Email:</strong> ahmad@edu.my</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>No. Kad Pengenalan:</strong> 981224-14-5567</p>
+                        <p><strong>Kelas:</strong> 5 ALFA</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Application Details -->
+            <div class="detail-section">
+                <div class="mb-4">
+                    <div class="detail-label">Peranan yang Dipohon</div>
+                    <div class="detail-value">Video Editor</div>
+                </div>
+
+                <div class="mb-4">
+                    <div class="detail-label">Tarikh Permohonan</div>
+                    <div class="detail-value">2025-01-02</div>
+                </div>
+
+                <div class="mb-4">
+                    <div class="detail-label">Pengalaman</div>
+                    <div class="detail-value">Pernah menyunting video untuk persembahan kelas dan program sekolah. Mahir menggunakan perisian Adobe Premiere Pro dan DaVinci Resolve.</div>
+                </div>
+
+                <div class="mb-4">
+                    <div class="detail-label">Sebab Memohon</div>
+                    <div class="detail-value">Ingin mengembangkan kemahiran dalam bidang penyuntingan video dan berkongsi cerita-cerita menarik tentang aktiviti sekolah.</div>
+                </div>
+            </div>
+
+            <div class="buttons-container">
+                <a href="dashboard.html" class="btn-apply">Kembali ke Dashboard</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
