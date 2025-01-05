@@ -1,11 +1,343 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Landing Page</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+	rel="stylesheet">
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+	rel="stylesheet">
+<style>
+:root {
+	--primary-color: #515B92;
+	/* Dark text color for readability on light background */
+	--secondary-color: #41E8C0;
+	--background-color: white; /* Light gray background */
+	--button-yellow: #FFC601;
+	--footer-color: #E1E1E1;
+	--footer-text-color: #333333;
+	--footer-heading-color: #1D326F;
+	--footer-link-color: #5D5D5D;
+	--footer-link-hover-color: #1D326F;
+}
 
-<h1>tetge</h1>
+a {
+	text-decoration: none !important;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	background-color: var(--background-color);
+	color: var(--primary-color);
+	/* Primary text color, dark for contrast */
+}
+
+.navbar {
+	padding: 1.5rem 0;
+	background-color: #515B92;
+}
+
+.nav-link {
+	color: rgba(255, 255, 255, 0.9);
+	margin: 0 1rem;
+	transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+	color: #FFC601;
+}
+
+/* Custom btn-apply style for yellow button */
+.btn-apply {
+	background-color: var(--button-yellow);
+	color: black;
+	border-radius: 20px;
+	padding: 0.5rem 1.5rem;
+	font-weight: 500;
+	transition: background-color 0.3s ease, color 0.3s ease;
+	border: none;
+}
+
+.btn-apply:hover {
+	background-color: darkorange;
+	color: white;
+}
+
+.hero-section {
+	padding: 6rem 0;
+	color: var(--primary-color);
+	min-height: 80vh;
+	display: flex;
+	align-items: center;
+	background-color: var(--background-color);
+}
+
+.hero-title {
+	font-size: 3.5rem;
+	font-weight: bold;
+	margin-bottom: 1.5rem;
+	color: #515B92;
+}
+
+.hero-subtitle {
+	color: #333333;
+	text-align: justify;
+	font-size: 1rem;
+	margin-bottom: 2rem;
+}
+
+.hero-image-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.hero-image {
+	max-width: 100%;
+	height: auto;
+	border-radius: 10px;
+}
+
+.step-title {
+	color: var(--primary-color); /* Text color for step titles */
+	font-weight: bold;
+}
+
+.step-sub {
+	color: #333333;
+}
+
+.steps-section {
+	background-color: white;
+	padding: 6rem 0;
+	min-height: 50vh;
+}
+
+.step-card {
+	background-color: #f8f9fa;
+	padding: 2rem;
+	min-height: 250px;
+	border-radius: 15px;
+	margin-bottom: 1.5rem;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.step-number {
+	color: var(--primary-color); /* Dark color for step numbers */
+	font-weight: bold;
+	margin-bottom: 1rem;
+}
+
+.footer {
+	background-color: var(--footer-color);
+	padding: 4rem 0 2rem;
+	color: var(--footer-text-color);
+}
+
+.footer-logo {
+	max-width: 200px;
+	height: auto;
+	margin-bottom: 1.5rem;
+}
+
+.footer-links {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.footer-links li {
+	margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+	color: var(--footer-link-color);
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+	color: var(--footer-link-hover-color);
+}
+
+.footer-heading {
+	font-size: 1.2rem;
+	font-weight: bold;
+	margin-bottom: 1.5rem;
+	color: var(--footer-heading-color);
+}
+
+.footer-bottom {
+	border-top: 1px solid #dee2e6;
+	margin-top: 3rem;
+	padding-top: 2rem;
+	text-align: center;
+	color: var(--footer-text-color);
+}
+
+.gov-logo {
+	max-width: 350px;
+	height: auto;
+	margin-bottom: 20px;
+}
+
+.footer-address {
+	color: var(--footer-text-color);
+	font-size: 0.9rem;
+}
+</style>
+</head>
+
+<body>
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg">
+		<div class="container">
+			<a class="navbar-brand" href="#"> <img
+				th:src="@{/images/logonav.png}" alt="Logo">
+			</a>
+			<div class="collapse navbar-collapse">
+				<div class="ms-auto">
+					<a th:href="@{/apply}">
+						<button class="btn-apply">Mohon Sekarang</button>
+					</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Hero Section -->
+	<section class="hero-section">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-6">
+					<h1 class="hero-title">TV PUSAT SUMBER SEKOLAH</h1>
+					<p class="hero-subtitle">
+						Sertai kami dalam menghasilkan kandungan berita yang menarik dan
+						kreatif. Peluang untuk belajar, berkarya, dan berkongsi cerita di
+						platform sekolah anda. <br>Mohon sekarang dan jadilah
+						sebahagian daripada pasukan!
+					</p>
+					<a th:href="@{/apply}">
+
+						<button class="btn-apply">Mohon Sekarang</button>
+					</a>
+				</div>
+				<div class="col-lg-6 hero-image-wrapper">
+					<img th:src="@{/images/heroimg.webp}" alt="Team collaboration"
+						class="hero-image">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Steps Section -->
+	<section class="steps-section">
+		<div class="container">
+			<h2 class="text-center mb-3 step-title">
+				3 Langkah Sahaja <br> Daftar dengan Mudah
+			</h2>
+			<p class="text-center mb-3 step-sub">Permohonan boleh dilakukan
+				di mana-mana sahaja melalui komputer dan hanya mengambil masa 5
+				minit.</p>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="step-card">
+						<div class="step-number">Langkah 1: Pilih Mohon Sekarang</div>
+						<p class="step-sub">Masukkan email pelajar anda dan no kad
+							pengenalagan sebagai kata laluan untuk mengakses sistem.</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="step-card">
+						<div class="step-number">Langkah 2: Isi Permohonan</div>
+						<p class="step-sub">Lengkapkan borang permohonan dengan
+							maklumat yang diperlukan. Pastikan semua butiran adalah tepat
+							sebelum menghantar.</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="step-card">
+						<div class="step-number">Langkah 3: Tunggu Keputusan</div>
+						<p class="step-sub">Setelah menghantar permohonan, tunggu
+							keputusan yang akan dimaklumkan melalui e-mel atau sistem
+							notifikasi.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="text-center">
+				<a th:href="@{/apply}">
+					<button class="btn-apply">Mohon Sekarang</button>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<img th:src="@{/images/moe.png}"
+				alt="Kementerian Pendidikan Malaysia" class="gov-logo">
+
+			<div class="row mt-3">
+				<div class="col-md-3 mb-4">
+					<h5 class="footer-heading">About Us</h5>
+					<ul class="footer-links">
+						<li><a href="#" target="_blank">About TVPSS</a></li>
+						<li><a href="#" target="_blank">Privacy Policy</a></li>
+						<li><a href="#" target="_blank">Terms of Service</a></li>
+						<li><a href="#" target="_blank">Security Policy</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-3 mb-4">
+					<h5 class="footer-heading">Government Links</h5>
+					<ul class="footer-links">
+						<li><a href="https://www.moe.gov.my" target="_blank">Ministry
+								of Education</a></li>
+						<li><a href="https://www.malaysia.gov.my" target="_blank">Government
+								of Malaysia</a></li>
+						<li><a href="https://www.komunikasi.gov.my/en/"
+							target="_blank">Ministry of Communications</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-3 mb-4">
+					<h5 class="footer-heading">Contact Us</h5>
+					<ul class="footer-links">
+						<li><a href="mailto:info@tvpss.com" target="_blank">info@tvpss.com</a></li>
+						<li><a href="tel:+60312345678" target="_blank">+603 1234
+								5678</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-3 mb-4">
+					<h5 class="footer-heading">Address</h5>
+					<p class="footer-address">
+						Kementerian Pendidikan Malaysia, <br> Aras 5, Blok E7,
+						Kompleks E, <br> Pusat Pentadbiran Kerajaan Persekutuan, <br>
+						62604 Putrajaya, Malaysia.
+					</p>
+				</div>
+			</div>
+
+			<div class="footer-bottom">
+				<p>© 2025 TV Pusat Sumber Sekolah. All rights reserved.</p>
+			</div>
+		</div>
+	</footer>
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

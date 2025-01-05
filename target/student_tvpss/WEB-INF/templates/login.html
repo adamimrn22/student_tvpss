@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TVPSS Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      padding: 1rem;
+    }
+
+    .login-container {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+      padding: 2rem;
+    }
+
+    .login-logo {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .login-logo img {
+      max-width: 180px;
+      height: auto;
+    }
+
+    .login-info {
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      color: #515B92;
+    }
+
+    .login-info p {
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .form-label {
+      font-weight: 500;
+      color: #515B92;
+    }
+
+    .form-control {
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      border: 1px solid #dee2e6;
+      margin-bottom: 1rem;
+    }
+
+    .form-control:focus {
+      box-shadow: 0 0 0 3px rgba(81, 91, 146, 0.2);
+      border-color: #515B92;
+    }
+
+    .btn-login {
+      background-color: #515B92;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 0.75rem;
+      font-weight: 500;
+      width: 100%;
+      margin-top: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-login:hover {
+      background-color: #3f477a;
+      color: white;
+    }
+
+    .form-text {
+      color: #6c757d;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+    }
+
+    .password-help {
+      font-size: 0.875rem;
+      color: #6c757d;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .password-help a {
+      color: #515B92;
+      text-decoration: none;
+    }
+
+    .password-help a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+<div class="login-container">
+
+  <div class="login-logo">
+    <img th:src="@{/images/logonavindex.png}" alt="TVPSS Logo">
+  </div>
+
+  <div class="login-info">
+    <p><strong>Maklumat Log Masuk:</strong></p>
+    <p>• Email: Gunakan email MOE anda</p>
+    <p>• Kata Laluan: Gunakan nombor kad pengenalan anda</p>
+  </div>
+
+  <form action="dashboard.html" method="POST">
+    <div class="mb-3">
+      <label for="email" class="form-label">Email MOE</label>
+      <input type="email" class="form-control" id="email" placeholder="username@moe.edu.my" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Kata Laluan</label>
+      <input type="password" class="form-control" id="password" placeholder="XXXXXXXXXXXX" required>
+      <div class="form-text">Masukkan nombor kad pengenalan tanpa tanda sengkang (-)</div>
+    </div>
+
+    <button type="submit" class="btn-login">Log Masuk</button>
+  </form>
+
+
+  <div class="password-help">
+    Menghadapi masalah log masuk? <a href="#">Hubungi Admin</a>
+  </div>
+</div>
+</body>
+</html>
