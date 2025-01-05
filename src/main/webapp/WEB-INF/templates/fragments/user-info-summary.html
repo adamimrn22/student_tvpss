@@ -4,29 +4,29 @@
         <div class="user-info-grid">
             <div>
                 <div class="info-label">Nama</div>
-                <div class="info-value">Ahmad bin Abdullah</div>
+                <div class="info-value" th:text="${student.name}"></div>
             </div>
             <div>
                 <div class="info-label">Email</div>
-                <div class="info-value">ahmad@edu.my</div>
+                <div class="info-value" th:text="${student.email}"></div>
             </div>
             <div>
                 <div class="info-label">No. Kad Pengenalan</div>
-                <div class="info-value">981224-14-5567</div>
+                <div class="info-value" th:text="${student.identificationNumber}">981224-14-5567</div>
             </div>
             <div>
                 <div class="info-label">Tingkatan</div>
-                <div class="info-value">1</div>
+                <div class="info-value" th:text="${student.studentLevel}"></div>
             </div>
             <div>
                 <div class="info-label">Nama Sekolah</div>
-                <div class="info-value">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur doloremque repellendus in sint</div>
+                <div class="info-value" th:text="${student.school.name}"></div>
                 <div class="info-label mt-2">Kod Sekolah</div>
-                <div class="info-value">JEA001</div>
+                <div class="info-value" th:text="${student.school.code}"></div>
             </div>
             <div>
                 <div class="info-label">Alamat Sekolah</div>
-                <div class="info-value">Lorem ipsum dolor sit amet consectetur adipisicing elit. In odit iure ullam exercitationem maiores magni similique sit amet, sed, obcaecati deleniti id quibusdam temporibus quam quia accusamus laborum saepe? Enim quasi, quo qui saepe dolorem ducimus tempora animi cum quod deserunt maxime perspiciatis illo. Libero velit hic delectus error quos.</div>
+                <div class="info-value" th:text="${student.school.address1 + ',' + student.school.address2 + ',' + student.school.postcode + ',' + student.school.district + ',' + student.school.state}"></div>
             </div>
         </div>
     </div>

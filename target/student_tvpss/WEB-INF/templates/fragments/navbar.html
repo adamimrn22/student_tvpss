@@ -1,13 +1,13 @@
 <div xmlns:th="http://www.thymeleaf.org">
-    <nav class="navbar">
-        <div class="container">
-            <a class="navbar-brand" th:href="@{/dashboard}">
-                <img th:src="@{/images/logonav.png}" alt="Logo">
-            </a>
-            <div class="d-flex align-items-center">
-                <span class="text-white me-3">Selamat Datang, Ahmad bin Abdullah</span>
-                <a th:href="@{/}" class="btn-apply">Logout</a>
-            </div>
-        </div>
-    </nav>
+	<nav class="navbar">
+		<div class="container">
+			<a class="navbar-brand" th:href="@{/dashboard}"> <img
+				th:src="@{/images/logonav.png}" alt="Logo">
+			</a>
+			<div class="d-flex align-items-center">
+       			 <span class="text-white me-3" th:text="'Selamat Datang, ' + ${student.getName}"></span>
+				<a th:href="@{/logout}" class="btn-apply">Logout</a>
+			</div>
+		</div>
+	</nav>
 </div>

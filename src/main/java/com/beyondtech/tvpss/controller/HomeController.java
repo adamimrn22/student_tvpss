@@ -1,14 +1,36 @@
 package com.beyondtech.tvpss.controller;
 
+import com.beyondtech.tvpss.model.Student;
+import com.beyondtech.tvpss.service.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.beyondtech.tvpss.config.SecurityUtils;
 
 @Controller
 public class HomeController {
 
+	private final StudentService studentService;
+
+	@Autowired
+	public HomeController(StudentService studentService) {
+		this.studentService = studentService;
+	}
+
+
 	@GetMapping("/login")
-	public String login(Model model) {
+	public String loginPage(Model model, @RequestParam(value = "error", required = false) String error) {
+		if (SecurityUtils.isAuthenticated()) {
+			return "redirect:/dashboard";
+		}
+
+		if (error != null) {
+			model.addAttribute("error", "Authentication failed. Please check your credentials.");
+		}
+
 		return "login";
 	}
 

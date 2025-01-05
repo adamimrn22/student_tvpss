@@ -1,13 +1,15 @@
 package com.beyondtech.tvpss.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.FilterType;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.client.RestTemplate;
 
 @Configuration
-//@ComponentScan(basePackages = { "com.beyondtech.tvpss" }, excludeFilters = {
-//		@ComponentScan.Filter(type = FilterType.ANNOTATION, value = EnableWebMvc.class) })
+@ComponentScan(basePackages = "com.beyondtech.tvpss")
 public class RootConfig {
-	// Add any root context configurations here
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
 }

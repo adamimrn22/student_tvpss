@@ -106,6 +106,7 @@
     .password-help a:hover {
       text-decoration: underline;
     }
+
   </style>
 </head>
 <body>
@@ -121,15 +122,20 @@
     <p>• Kata Laluan: Gunakan nombor kad pengenalan anda</p>
   </div>
 
-  <form action="dashboard.html" method="POST">
+  <div th:if="${error}" class="alert alert-danger">
+      <span th:text="${error}"></span>
+  </div>
+
+
+  <form th:action="@{/login}" method="post">
     <div class="mb-3">
       <label for="email" class="form-label">Email MOE</label>
-      <input type="email" class="form-control" id="email" placeholder="username@moe.edu.my" required>
+      <input type="email" class="form-control" id="email" name="email" placeholder="username@moe.edu.my" required>
     </div>
 
     <div class="mb-3">
       <label for="password" class="form-label">Kata Laluan</label>
-      <input type="password" class="form-control" id="password" placeholder="XXXXXXXXXXXX" required>
+      <input type="password" class="form-control" id="password" name="password" placeholder="XXXXXXXXXXXX" required>
       <div class="form-text">Masukkan nombor kad pengenalan tanpa tanda sengkang (-)</div>
     </div>
 
@@ -141,5 +147,7 @@
     Menghadapi masalah log masuk? <a href="#">Hubungi Admin</a>
   </div>
 </div>
+
+
 </body>
 </html>

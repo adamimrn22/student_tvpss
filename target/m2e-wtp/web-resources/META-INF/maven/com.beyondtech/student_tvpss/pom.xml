@@ -16,8 +16,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>8</maven.compiler.source>
-		<maven.compiler.target>8</maven.compiler.target>
+		<maven.compiler.source>17</maven.compiler.source> <!-- Change this to 17 -->
+		<maven.compiler.target>17</maven.compiler.target> <!-- Change this to 17 -->
 	</properties>
 
 	<dependencies>
@@ -27,11 +27,16 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!--
+		https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>6.0.2</version>
+			<version>6.2.0</version>
 		</dependency>
+
+
 		<!-- Thymeleaf templating engine (Spring 6 compatible) -->
 		<dependency>
 			<groupId>org.thymeleaf</groupId>
@@ -54,10 +59,12 @@
 		</dependency>
 
 		<!-- Spring Context to enable @Configuration and component scanning -->
+		<!--
+		https://mvnrepository.com/artifact/org.springframework/spring-context -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>6.0.2</version>
+			<version>6.2.0</version>
 		</dependency>
 
 		<!-- MySQL Connector -->
@@ -68,10 +75,11 @@
 		</dependency>
 
 		<!-- Spring ORM -->
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>6.0.2</version>
+			<version>6.2.0</version>
 		</dependency>
 
 		<!-- Hibernate Core -->
@@ -87,7 +95,64 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>6.0.2</version>
 		</dependency>
+
+		<!--
+		https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>6.4.1</version>
+		</dependency>
+
+		<!--
+		https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>6.4.1</version>
+		</dependency>
+
+		<!--
+		https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>6.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.18.2</version>
+			<scope>compile</scope>
+		</dependency>
+
+
+		<!-- SLF4J API dependency -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.30</version> <!-- Make sure this matches the Logback
+			version -->
+		</dependency>
+
+		<!-- Logback classic (logging implementation) -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version> <!-- Make sure this version is compatible
+			with SLF4J -->
+		</dependency>
+
+		<!-- Logback core (required by logback-classic) -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>1.2.3</version>
+		</dependency>
+
+
 	</dependencies>
+
 
 	<build>
 		<finalName>student_tvpss</finalName>

@@ -161,6 +161,15 @@
             justify-content: center;
             margin-top: 2rem;
         }
+
+        .footer-bottom {
+            border-top: 1px solid #dee2e6;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--footer-text-color);
+        }
+
     </style>
 </head>
 <body>
@@ -231,6 +240,8 @@
                 <a th:href="@{/dashboard}" class="btn-apply">Kembali ke Dashboard</a>
             </div>
         </div>
+        <th:block th:replace="fragments/footer"></th:block>
+
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
