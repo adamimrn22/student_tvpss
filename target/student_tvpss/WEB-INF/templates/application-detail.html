@@ -1,249 +1,259 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TVPSS Application Details</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: white;
-            --secondary-color: #41E8C0;
-            --background-color: #515B92;
-            --button-yellow: #FFC601;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TVPSS Application Details</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+	rel="stylesheet">
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+	rel="stylesheet">
+<style>
+:root {
+	--primary-color: white;
+	--secondary-color: #41E8C0;
+	--background-color: #515B92;
+	--button-yellow: #FFC601;
+}
 
-		a {
-			text-decoration: none !important;
-		}
+a {
+	text-decoration: none !important;
+}
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f5f5f5;
-        }
+body {
+	font-family: 'Poppins', sans-serif;
+	background-color: #f5f5f5;
+}
 
-        .navbar {
-            background-color: var(--background-color);
-            padding: 1.5rem 0;
-        }
+.navbar {
+	background-color: var(--background-color);
+	padding: 1.5rem 0;
+}
 
-        .btn-apply {
-            background-color: var(--button-yellow);
-            color: black;
-            border-radius: 20px;
-            padding: 0.5rem 1.5rem;
-            font-weight: 500;
-            transition: background-color 0.3s ease;
-            border: none;
-        }
+.btn-apply {
+	background-color: var(--button-yellow);
+	color: black;
+	border-radius: 20px;
+	padding: 0.5rem 1.5rem;
+	font-weight: 500;
+	transition: background-color 0.3s ease;
+	border: none;
+}
 
-        .btn-apply:hover {
-            background-color: darkorange;
-            color: white;
-        }
+.btn-apply:hover {
+	background-color: darkorange;
+	color: white;
+}
 
-        .details-container {
-            padding: 2rem;
-        }
+.details-container {
+	padding: 2rem;
+}
 
-        .application-details {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
+.application-details {
+	background: white;
+	border-radius: 10px;
+	padding: 2rem;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-        .section-title {
-            color: var(--background-color);
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-        }
+.section-title {
+	color: var(--background-color);
+	font-weight: bold;
+	margin-bottom: 1.5rem;
+}
 
-        .user-info-card {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-         }
+.user-info-card {
+	background: #f8f9fa;
+	border-radius: 8px;
+	padding: 2rem;
+	margin-bottom: 2rem;
+}
 
-        .user-info-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
+.user-info-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.5rem;
+}
 
-        .sectsub {
-            color: #333 !important;
-            font-size: 1.5rem !important;
-        }
+.sectsub {
+	color: #333 !important;
+	font-size: 1.5rem !important;
+}
 
-        .info-label {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 0.25rem;
-        }
+.info-label {
+	color: #666;
+	font-size: 0.9rem;
+	margin-bottom: 0.25rem;
+}
 
-        .info-value {
-            font-weight: 500;
-            color: #333;
-        }
+.info-value {
+	font-weight: 500;
+	color: #333;
+}
 
-        .status-badge {
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: 500;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
+.detail-section {
+	margin-bottom: 2rem;
+	padding: 1.5rem;
+	border-radius: 8px;
+	background: #f8f9fa;
+}
 
-        .status-pending {
-            background-color: #fff3cd;
-            color: #856404;
-        }
+.detail-label {
+	font-weight: 500;
+	color: #666;
+	margin-bottom: 0.5rem;
+}
 
-        .status-approved {
-            background-color: #d4edda;
-            color: #155724;
-        }
+.detail-value {
+	color: #333;
+}
 
-        .status-rejected {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
+.status-badge {
+	padding: 0.5rem 1rem;
+	border-radius: 20px;
+	font-weight: 500;
+	display: inline-block;
+	margin-bottom: 1rem;
+}
 
-        .detail-section {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            border-radius: 8px;
-            background: #f8f9fa;
-        }
+.status-badge.status-pending {
+	background-color: #fff3cd;
+	color: #856404;
+}
 
-        .detail-label {
-            font-weight: 500;
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
+.status-badge.status-approved {
+	background-color: #d4edda;
+	color: #155724;
+}
 
-        .detail-value {
-            color: #333;
-        }
+.status-badge.status-rejected {
+	background-color: #f8d7da;
+	color: #721c24;
+}
 
-        .status-message {
-            padding: 2rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            text-align: center;
-        }
+.status-message {
+	padding: 2rem;
+	border-radius: 8px;
+	margin: 1rem 0;
+	text-align: center;
+}
 
-        .status-message.pending {
-            background-color: #fff3cd;
-            color: #856404;
-        }
+.status-message.pending {
+	background-color: #fff3cd;
+	border: 1px solid #ffeeba;
+	color: #856404;
+}
 
-        .status-message.approved {
-            background-color: #d4edda;
-            border: 1px solid #c3e6cb;
-        }
+.status-message.approved {
+	background-color: #d4edda;
+	border: 1px solid #c3e6cb;
+	color: #155724;
+}
 
-        .status-message.rejected {
-            background-color: #f8d7da;
-            border: 1px solid #f5c6cb;
-        }
+.status-message.rejected {
+	background-color: #f8d7da;
+	border: 1px solid #f5c6cb;
+	color: #721c24;
+}
 
-        .status-message h3 {
-            margin-bottom: 1rem;
-            color: #333;
-        }
+.status-message h3 {
+	margin-bottom: 1rem;
+	color: #333;
+}
 
-        .buttons-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 2rem;
-        }
+.buttons-container {
+	display: flex;
+	justify-content: center;
+	margin-top: 2rem;
+}
 
-        .footer-bottom {
-            border-top: 1px solid #dee2e6;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            text-align: center;
-            color: var(--footer-text-color);
-        }
-
-    </style>
+.footer-bottom {
+	border-top: 1px solid #dee2e6;
+	margin-top: 3rem;
+	padding-top: 2rem;
+	text-align: center;
+	color: var(--footer-text-color);
+}
+</style>
 </head>
 <body>
-<!-- Navbar -->
-    <th:block th:replace="fragments/navbar"></th:block>
+
+	<th:block th:replace="fragments/navbar"></th:block>
+
+	<div class="container details-container">
+		<div class="application-details">
+			<h2 class="section-title">Butiran Permohonan</h2>
+
+			<div class="text-center mb-4">
+				<span
+					th:class="'status-badge ' + ${tvpssCrew.status == 'PENDING' ? 'status-pending' : tvpssCrew.status == 'APPROVED' ? 'status-approved' : 'status-rejected'}"
+					th:text="${tvpssCrew.status}"></span>
+			</div>
+
+			<div class="status-message" th:with="status=${tvpssCrew.status}"
+				th:classappend="${status == 'PENDING' ? 'pending' : 
+                         status == 'APPROVED' ? 'approved' : 
+                         status == 'REJECTED' ? 'rejected' : ''}">
+
+				<div th:if="${status == 'PENDING'}">
+					<h3>Permohonan masih dalam proses</h3>
+					<p>Status kemaskini akan dihantar kepada email anda.</p>
+				</div>
+
+				<div th:if="${status == 'APPROVED'}">
+					<h3>Tahniah! Permohonan Anda Telah Diluluskan</h3>
+					<p>Anda kini adalah sebahagian daripada pasukan TVPSS. Sila
+						hubungi PIC sekolah anda.</p>
+				</div>
+
+				<div th:if="${status == 'REJECTED'}">
+					<h3>Harap Maaf, Permohonan Anda Tidak Berjaya</h3>
+					<p>Anda digalakkan untuk memohon semula pada pembukaan
+						permohonan akan datang.</p>
+				</div>
+			</div>
 
 
-<!-- Application Details Content -->
-    <div class="container details-container">
-        <div class="application-details">
-            <h2 class="section-title">Butiran Permohonan</h2>
+			<div class="detail-section">
+				<div class="mb-4">
+					<div class="detail-label">Nama</div>
+					<div class="detail-value" th:text="${tvpssCrew.name}"></div>
+				</div>
 
-            <!-- Application Status -->
-            <div class="text-center mb-4">
-                <!-- Change class based on status -->
-                <span class="status-badge status-approved">Approved</span>
-                <!-- Alternative statuses: -->
-                <!-- <span class="status-badge status-pending">Pending</span> -->
-                <!-- <span class="status-badge status-rejected">Rejected</span> -->
-            </div>
+				<div class="mb-4">
+					<div class="detail-label">No. Pengenalan</div>
+					<div class="detail-value"
+						th:text="${tvpssCrew.identificationNumber}"></div>
+				</div>
 
-            <!-- Status-specific message -->
-            <div class="status-message approved">
+				<div class="mb-4">
+					<div class="detail-label">Jawatan yang Dipohon</div>
+					<div class="detail-value" th:text="${tvpssCrew.position.name}"></div>
+				</div>
 
-                <!-- For Pendinig Application-->
-                <!-- <div class="status-message rejected">
-                <h3>Permohonan masih dalam process</h3>-->
-<!--            <p>Status kemaskini akan dihantar kepada email anda.</p>
-                </div>
-                    -->
+				<div class="mb-4">
+					<div class="detail-label">Tarikh Permohonan</div>
+					<div class="detail-value"
+						th:text="${#dates.format(tvpssCrew.dateApplied, 'yyyy-MM-dd')}"></div>
+				</div>
 
-                <!-- For Approved Applications -->
-                <h3>Tahniah! Permohonan Anda Telah Diluluskan</h3>
-                <p>Anda kini adalah sebahagian daripada pasukan TVPSS. Sila hubungi PIC sekolah anda.</p>
-                
-                <!-- For Rejected Applications (hidden by default) -->
-                <!-- <div class="status-message rejected">
-                    <h3>Harap Maaf, Permohonan Anda Tidak Berjaya</h3>
-                    <p>Sebab: Kedudukan telah dipenuhi oleh pemohon lain.</p>
-                    <p>Anda digalakkan untuk memohon semula pada pembukaan permohonan akan datang.</p>
-                </div> -->
-            </div>
+				<div th:if="${tvpssCrew.status == 'REJECTED'}" class="mb-4">
+					<div class="detail-label">Sebab Penolakan</div>
+					<div class="detail-value" th:text="${tvpssCrew.rejectCause}"></div>
+				</div>
+			</div>
 
-            <!-- User Information Summary -->
-            <th:block th:replace="fragments/user-info-summary"></th:block>
+			<div class="buttons-container">
+				<a th:href="@{/dashboard}" class="btn-apply">Kembali ke
+					Dashboard</a>
+			</div>
+		</div>
+		<th:block th:replace="fragments/footer"></th:block>
+	</div>
 
-
-            <!-- Application Details -->
-            <div class="detail-section">
-                <div class="mb-4">
-                    <div class="detail-label">Jawatan yang Dipohon</div>
-                    <div class="detail-value">Video Editor</div>
-                </div>
-
-                <div class="mb-4">
-                    <div class="detail-label">Tarikh Permohonan</div>
-                    <div class="detail-value">2025-01-02</div>
-                </div>
-
-                <!-- For Rejected
-                 <div class="mb-4">
-                  <div class="detail-label">Sebab Penolakan</div>
-                    <div class="detail-value">testetstteststststst</div>
-                 </div> -->
-            </div>
-
-            <div class="buttons-container">
-                <a th:href="@{/dashboard}" class="btn-apply">Kembali ke Dashboard</a>
-            </div>
-        </div>
-        <th:block th:replace="fragments/footer"></th:block>
-
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -38,16 +38,19 @@
 
 
 		<!-- Thymeleaf templating engine (Spring 6 compatible) -->
+		<!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf -->
 		<dependency>
 			<groupId>org.thymeleaf</groupId>
 			<artifactId>thymeleaf</artifactId>
-			<version>3.1.1.RELEASE</version>
+			<version>3.1.2.RELEASE</version>
 		</dependency>
 
+
+		<!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring6 -->
 		<dependency>
 			<groupId>org.thymeleaf</groupId>
 			<artifactId>thymeleaf-spring6</artifactId>
-			<version>3.1.1.RELEASE</version>
+			<version>3.1.2.RELEASE</version>
 		</dependency>
 
 		<!-- Servlet API provided by the container -->
@@ -82,19 +85,13 @@
 			<version>6.2.0</version>
 		</dependency>
 
-		<!-- Hibernate Core -->
-		<dependency>
-			<groupId>org.hibernate.orm</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>6.4.1.Final</version>
-		</dependency>
-
 		<!-- Spring JDBC -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-			<version>6.0.2</version>
+			<version>6.1.14</version>
 		</dependency>
+
 
 		<!--
 		https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
@@ -119,6 +116,7 @@
 			<artifactId>spring-security-web</artifactId>
 			<version>6.4.1</version>
 		</dependency>
+
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
@@ -131,23 +129,31 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>1.7.30</version> <!-- Make sure this matches the Logback
-			version -->
+			<version>1.7.30</version> <!-- This is fine for Logback -->
 		</dependency>
 
 		<!-- Logback classic (logging implementation) -->
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
-			<version>1.2.3</version> <!-- Make sure this version is compatible
-			with SLF4J -->
+			<version>1.2.9</version> <!-- This is a stable and widely used
+			version -->
 		</dependency>
 
 		<!-- Logback core (required by logback-classic) -->
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-core</artifactId>
-			<version>1.2.3</version>
+			<version>1.2.9</version> <!-- Make sure it matches the version of
+			logback-classic -->
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.hibernate.orm</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>6.6.4.Final</version>
+			<scope>compile</scope>
 		</dependency>
 
 

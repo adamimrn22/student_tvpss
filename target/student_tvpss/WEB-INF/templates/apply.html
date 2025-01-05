@@ -2,211 +2,214 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TVPSS Mohon</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: white;
-            --secondary-color: #41E8C0;
-            --background-color: #515B92;
-            --button-yellow: #FFC601;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TVPSS Mohon</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+	rel="stylesheet">
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+	rel="stylesheet">
+<style>
+:root {
+	--primary-color: white;
+	--secondary-color: #41E8C0;
+	--background-color: #515B92;
+	--button-yellow: #FFC601;
+}
 
-		a {
-			text-decoration: none !important;
-		}
-		
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f5f5f5;
-        }
+a {
+	text-decoration: none !important;
+}
 
-        .navbar {
-            background-color: var(--background-color);
-            padding: 1.5rem 0;
-        }
+body {
+	font-family: 'Poppins', sans-serif;
+	background-color: #f5f5f5;
+}
 
-        .btn-apply {
-            background-color: var(--button-yellow);
-            color: black;
-            border-radius: 20px;
-            padding: 0.5rem 1.5rem;
-            font-weight: 500;
-            transition: background-color 0.3s ease;
-            border: none;
-        }
+.navbar {
+	background-color: var(--background-color);
+	padding: 1.5rem 0;
+}
 
-        .btn-apply:hover {
-            background-color: darkorange;
-            color: white;
-        }
+.btn-apply {
+	background-color: var(--button-yellow);
+	color: black;
+	border-radius: 20px;
+	padding: 0.5rem 1.5rem;
+	font-weight: 500;
+	transition: background-color 0.3s ease;
+	border: none;
+}
 
-        .form-container {
-            padding: 2rem;
-        }
+.btn-apply:hover {
+	background-color: darkorange;
+	color: white;
+}
 
-        .application-form {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+.form-container {
+	padding: 2rem;
+}
 
-        .section-title {
-            color: var(--background-color);
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-        }
+.application-form {
+	background: white;
+	border-radius: 10px;
+	padding: 2rem;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-        .user-info-summary {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-        }
+.section-title {
+	color: var(--background-color);
+	font-weight: bold;
+	margin-bottom: 1.5rem;
+}
 
-        .form-label {
-            font-weight: 500;
-            color: #333;
-        }
+.user-info-summary {
+	background: #f8f9fa;
+	padding: 1.5rem;
+	border-radius: 8px;
+	margin-bottom: 2rem;
+}
 
-        .form-select,
-        .form-control {
-            border-radius: 8px;
-            padding: 0.75rem;
-            border: 1px solid #ddd;
-        }
+.form-label {
+	font-weight: 500;
+	color: #333;
+}
 
-        .form-text {
-            color: #666;
-            font-size: 0.9rem;
-        }
+.form-select, .form-control {
+	border-radius: 8px;
+	padding: 0.75rem;
+	border: 1px solid #ddd;
+}
 
-        .buttons-container {
-            display: flex;
-            gap: 1rem;
-            justify-content: flex-end;
-            margin-top: 2rem;
-        }
+.form-text {
+	color: #666;
+	font-size: 0.9rem;
+}
 
-        .btn-cancel {
-            background-color: #6c757d;
-            color: white;
-            border-radius: 20px;
-            padding: 0.5rem 1.5rem;
-            font-weight: 500;
-            transition: background-color 0.3s ease;
-            border: none;
-        }
+.buttons-container {
+	display: flex;
+	gap: 1rem;
+	justify-content: flex-end;
+	margin-top: 2rem;
+}
 
-        .btn-cancel:hover {
-            background-color: #5a6268;
-        }
+.btn-cancel {
+	background-color: #6c757d;
+	color: white;
+	border-radius: 20px;
+	padding: 0.5rem 1.5rem;
+	font-weight: 500;
+	transition: background-color 0.3s ease;
+	border: none;
+}
 
-        .user-info-card {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-        }
+.btn-cancel:hover {
+	background-color: #5a6268;
+}
 
-        .user-info-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
+.user-info-card {
+	background: #f8f9fa;
+	border-radius: 8px;
+	padding: 2rem;
+	margin-bottom: 2rem;
+}
 
-        .info-label {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 0.25rem;
-        }
+.user-info-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.5rem;
+}
 
-        .info-value {
-            font-weight: 500;
-            color: #333;
-        }
+.info-label {
+	color: #666;
+	font-size: 0.9rem;
+	margin-bottom: 0.25rem;
+}
 
-        .sectsub {
-            color: #333 !important;
-            font-size: 1.5rem !important;
-        }
+.info-value {
+	font-weight: 500;
+	color: #333;
+}
 
-        .footer-bottom {
-            border-top: 1px solid #dee2e6;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            text-align: center;
-            color: var(--footer-text-color);
-        }
+.sectsub {
+	color: #333 !important;
+	font-size: 1.5rem !important;
+}
 
-
-    </style>
+.footer-bottom {
+	border-top: 1px solid #dee2e6;
+	margin-top: 3rem;
+	padding-top: 2rem;
+	text-align: center;
+	color: var(--footer-text-color);
+}
+</style>
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="container">
-        	<a class="navbar-brand" th:href="@{/dashboard}"> 
-				<img th:src="@{/images/logonav.png}" alt="Logo">
+	<!-- Navbar -->
+	<nav class="navbar">
+		<div class="container">
+			<a class="navbar-brand" th:href="@{/dashboard}"> <img
+				th:src="@{/images/logonav.png}" alt="Logo">
 			</a>
-            <div class="d-flex align-items-center">
-                <span class="text-white me-3">Welcome, Ahmad bin Abdullah</span>
-                <a th:href="@{/logout}" class="btn-apply">Logout</a>
-            </div>
-        </div>
-    </nav>
+			<div class="d-flex align-items-center">
+				<span class="text-white me-3">Welcome, Ahmad bin Abdullah</span> <a
+					th:href="@{/logout}" class="btn-apply">Logout</a>
+			</div>
+		</div>
+	</nav>
 
-    <!-- Form Content -->
-    <div class="container form-container">
-        <div class="application-form">
-            <h2 class="section-title">Borang Permohonan TVPSS</h2>
+	<!-- Form Content -->
+	<div class="container form-container">
+		<div class="application-form">
+			<h2 class="section-title">Borang Permohonan TVPSS</h2>
 
-            <!-- User Information Summary -->
-            <th:block th:replace="fragments/user-info-summary"></th:block>
+			<!-- User Information Summary -->
+			<th:block th:replace="fragments/user-info-summary"></th:block>
 
 
-            <!-- Application Form -->
-            <form>
-                <div class="mb-4">
-                    <label for="role" class="form-label">Peranan yang Dipohon</label>
-                    <select class="form-select" id="role" required>
-                        <option value="">Pilih peranan...</option>
-                        <option value="video_editor">Video Editor</option>
-                        <option value="news_reporter">News Reporter</option>
-                        <option value="photographer">Photographer</option>
-                        <option value="content_writer">Content Writer</option>
-                    </select>
-                    <div class="form-text">Pilih peranan yang anda minati dalam pasukan TVPSS.</div>
-                </div>
+			<!-- Application Form -->
+			<form th:action="@{/apply}" method="POST"> 			
+				<div class="mb-4">
+					<label for="role" class="form-label">Peranan yang Dipohon</label> <select
+						class="form-select" id="role" name="position.id" required>
+						<option value="">Pilih peranan...</option>
+						<option th:each="role : ${roles}" th:value="${role.getId()}"
+							th:text="${role.getName()}"></option>
+					</select>
 
-                <div class="mb-4">
-                    <label for="ytlink" class="form-label">Link Youtube Resume</label>
-                    <input class="form-control" id="ytlink" rows="4"
-                        placeholder="Sila isi link youtube mengenai diri anda"></input>
-                </div>
+					<div class="form-text">Pilih peranan yang anda minati dalam
+						pasukan TVPSS.</div>
+				</div>
 
-                <div class="mb-4">
-                    <label for="scmedia" class="form-label">Link Social Media (Jika Ada)</label>
-                    <input class="form-control" id="scmedia" rows="4"
-                        placeholder="Sila isi link social media anda jika ada"></input>
-                </div>
+				<div class="mb-4">
+					<label for="ytlink" class="form-label">Link Youtube Resume</label>
+					<input class="form-control" id="ytlink" name="resumeLink" rows="4"
+						placeholder="Sila isi link youtube mengenai diri anda"></input>
+				</div>
 
-                <div class="buttons-container">
-                    <a th:href="@{/dashboard}" class="btn-cancel">Batal</a>
-                    <button type="submit" class="btn-apply">Hantar Permohonan</button>
-                </div>
-            </form>
-        </div>
-        <th:block th:replace="fragments/footer"></th:block>
+				<div class="mb-4">
+					<label for="scmedia" class="form-label">Link Social Media
+						(Jika Ada)</label> <input class="form-control" id="scmedia"
+						name="socialmediaLink" rows="4"
+						placeholder="Sila isi link social media anda jika ada"></input>
+				</div>
 
-    </div>
+				<div class="buttons-container">
+					<a th:href="@{/dashboard}" class="btn-cancel">Batal</a>
+					<button type="submit" class="btn-apply">Hantar Permohonan</button>
+				</div>
+			</form>
+		</div>
+		<th:block th:replace="fragments/footer"></th:block>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+	</div>
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

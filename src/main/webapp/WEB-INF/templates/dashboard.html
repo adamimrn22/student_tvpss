@@ -2,199 +2,200 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>TVPSS Dashboard</title>
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
-	<style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TVPSS Dashboard</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+	rel="stylesheet">
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+	rel="stylesheet">
+<style>
+:root {
+	--primary-color: white;
+	--secondary-color: #41E8C0;
+	--background-color: #515B92;
+	--button-yellow: #FFC601;
+}
 
-		:root {
-			--primary-color: white;
-			--secondary-color: #41E8C0;
-			--background-color: #515B92;
-			--button-yellow: #FFC601;
-		}
+a {
+	text-decoration: none !important;
+}
 
-		a {
-			text-decoration: none !important;
-		}
+body {
+	font-family: 'Poppins', sans-serif;
+	background-color: #f5f5f5;
+}
 
-		body {
-			font-family: 'Poppins', sans-serif;
-			background-color: #f5f5f5;
-		}
+.navbar {
+	background-color: var(--background-color);
+	padding: 1.5rem 0;
+}
 
-		.navbar {
-			background-color: var(--background-color);
-			padding: 1.5rem 0;
-		}
+.btn-apply {
+	background-color: var(--button-yellow);
+	color: black;
+	border-radius: 20px;
+	padding: 0.5rem 1.5rem;
+	font-weight: 500;
+	transition: background-color 0.3s ease;
+	border: none;
+}
 
-		.btn-apply {
-			background-color: var(--button-yellow);
-			color: black;
-			border-radius: 20px;
-			padding: 0.5rem 1.5rem;
-			font-weight: 500;
-			transition: background-color 0.3s ease;
-			border: none;
-		}
+.btn-apply:hover {
+	background-color: darkorange;
+	color: white;
+}
 
-		.btn-apply:hover {
-			background-color: darkorange;
-			color: white;
-		}
+.dashboard-container {
+	padding: 2rem;
+}
 
-		.dashboard-container {
-			padding: 2rem;
-		}
+.applications-table {
+	background: white;
+	border-radius: 10px;
+	padding: 1rem;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-		.applications-table {
-			background: white;
-			border-radius: 10px;
-			padding: 1rem;
-			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-		}
+.table {
+	margin-bottom: 0;
+}
 
-		.table {
-			margin-bottom: 0;
-		}
+.table th {
+	background-color: #f8f9fa;
+	font-weight: 600;
+}
 
-		.table th {
-			background-color: #f8f9fa;
-			font-weight: 600;
-		}
+.status-pending {
+	color: #ffa500;
+	font-weight: 500;
+}
 
-		.status-pending {
-			color: #ffa500;
-			font-weight: 500;
-		}
+.status-approved {
+	color: #28a745;
+	font-weight: 500;
+}
 
-		.status-approved {
-			color: #28a745;
-			font-weight: 500;
-		}
+.status-rejected {
+	color: #dc3545;
+	font-weight: 500;
+}
 
-		.status-rejected {
-			color: #dc3545;
-			font-weight: 500;
-		}
+.section-title {
+	color: var(--background-color);
+	font-weight: bold;
+	margin-bottom: 1rem;
+}
 
-		.section-title {
-			color: var(--background-color);
-			font-weight: bold;
-			margin-bottom: 1rem;
-		}
+.user-info-card {
+	background: white;
+	border-radius: 10px;
+	padding: 2rem;
+	margin-bottom: 2rem;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-		.user-info-card {
-			background: white;
-			border-radius: 10px;
-			padding: 2rem;
-			margin-bottom: 2rem;
-			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-		}
-		.user-info-grid {
-			display: grid;
-			grid-template-columns: repeat(2, 1fr);
-			gap: 1.5rem;
-		}
+.user-info-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.5rem;
+}
 
-		.info-label {
-			color: #666;
-			font-size: 0.9rem;
-			margin-bottom: 0.25rem;
-		}
+.info-label {
+	color: #666;
+	font-size: 0.9rem;
+	margin-bottom: 0.25rem;
+}
 
-		.info-value {
-			font-weight: 500;
-			color: #333;
-		}
+.info-value {
+	font-weight: 500;
+	color: #333;
+}
 
-		.header-actions {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			margin-bottom: 1rem;
-		}
-		.footer-bottom {
-			border-top: 1px solid #dee2e6;
-			margin-top: 3rem;
-			padding-top: 2rem;
-			text-align: center;
-			color: var(--footer-text-color);
-		}
+.header-actions {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1rem;
+}
 
-	</style>
+.footer-bottom {
+	border-top: 1px solid #dee2e6;
+	margin-top: 3rem;
+	padding-top: 2rem;
+	text-align: center;
+	color: var(--footer-text-color);
+}
+</style>
 </head>
 
 <body>
-<!-- Navbar -->
-<th:block th:replace="fragments/navbar"></th:block>
+	<th:block th:replace="fragments/navbar"></th:block>
 
-<!-- Dashboard Content -->
-<div class="container dashboard-container">
-	<!-- User Information Card -->
-	<th:block th:replace="fragments/user-info-card"></th:block>
+	<div class="container dashboard-container">
 
-	<div class="applications-table">
-		<div class="header-actions">
-			<h2 class="section-title mb-0">Senarai Permohonan</h2>
-			<a th:href="@{/apply}" class="btn-apply">Mohon Baru</a>
+		<div th:if="${alertMessage}"
+			class="alert alert-success alert-dismissible fade show" role="alert">
+			<span th:text="${alertMessage}"></span>
+			<button type="button" class="btn-close" data-bs-dismiss="alert"
+				aria-label="Close"></button>
 		</div>
-		<table class="table">
-			<thead>
-			<tr>
-				<th>ID</th>
-				<th>Jawatan</th>
-				<th>Tarikh Mohon</th>
-				<th>Status</th>
-				<th>Aksi</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-				<td>1</td>
-				<td>Video Editor</td>
-				<td>2025-01-02</td>
-				<td><span class="status-pending">Pending</span></td>
-				<td><a th:href="@{/apply/detail}"
-					   class="btn btn-success btn-sm"> <svg
-						xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-						viewBox="0 0 24 24" fill="none" stroke="currentColor"
-						stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-						class="icon icon-tabler icons-tabler-outline icon-tabler-eye">
-					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-					<path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-					<path
-							d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
-					<span>Lihat</span>
-				</a></td>
-			</tr>
-			<tr>
-				<td>2</td>
-				<td>News Reporter</td>
-				<td>2025-01-01</td>
-				<td><span class="status-approved">Approved</span></td>
-				<td><a th:href="@{/apply/detail}"
-					   class="btn btn-success btn-sm"> <svg
-						xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-						viewBox="0 0 24 24" fill="none" stroke="currentColor"
-						stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-						class="icon icon-tabler icons-tabler-outline icon-tabler-eye">
-					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-					<path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-					<path
-							d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
-					<span>Lihat</span>
-				</a></td>
-			</tr>
-			</tbody>
-		</table>
-	</div>
-	<th:block th:replace="fragments/footer"></th:block>
-</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+		<th:block th:replace="fragments/user-info-card"></th:block>
+
+		<div class="applications-table">
+			<div class="header-actions">
+				<h2 class="section-title mb-0">Senarai Permohonan</h2>
+				<a th:href="@{/apply}" class="btn-apply">Mohon Baru</a>
+			</div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Jawatan</th>
+						<th>Tarikh Mohon</th>
+						<th>Status</th>
+						<th>Aksi</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="tvpssApplication : ${tvpssApplications}">
+						<td th:text="${tvpssApplication.id}"></td>
+						<td th:text="${tvpssApplication.getPosition().getName()}"></td>
+						<td
+							th:text="${#dates.format(tvpssApplication.dateApplied, 'yyyy-MM-dd')}"></td>
+						<td><span
+							th:class="${tvpssApplication.status.name().equals('PENDING') ? 'status-pending' : 
+               tvpssApplication.status.name().equals('APPROVED') ? 'status-approved' : 'status-rejected'}"
+							th:text="${tvpssApplication.status}"></span></td>
+
+						<td><a
+							th:href="@{/apply/detail/{id}(id=${tvpssApplication.id})}"
+							class="btn btn-success btn-sm"> <svg
+									xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+									viewBox="0 0 24 24" fill="none" stroke="currentColor"
+									stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+									class="icon icon-tabler icons-tabler-outline icon-tabler-eye">
+				                    <path stroke="none" d="M0 0h24v24H0z"
+										fill="none" />
+				                    <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+				                    <path
+										d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
+                </svg> <span>Lihat</span>
+						</a></td>
+					</tr>
+				</tbody>
+
+			</table>
+
+		</div>
+		<th:block th:replace="fragments/footer"></th:block>
+	</div>
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

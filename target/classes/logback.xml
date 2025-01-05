@@ -1,18 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <!-- Console appender for logging -->
+    <!-- Define the log pattern -->
+    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} - %msg%n" />
+
+    <!-- Console Appender to print logs to the console -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+            <pattern>${LOG_PATTERN}</pattern>
         </encoder>
     </appender>
 
-    <!-- Root logger definition -->
-    <root level="debug">
-        <appender-ref ref="CONSOLE"/>
+    <!-- Root logger level, set to DEBUG for detailed logs -->
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE" />
     </root>
 
-    <!-- Specific package logging -->
-    <logger name="com.beyondtech.tvpss" level="debug"/>
+    <!-- Logger configuration for specific packages -->
+    <logger name="com.beyondtech.tvpss" level="DEBUG">
+        <appender-ref ref="CONSOLE" />
+    </logger>
 
 </configuration>
