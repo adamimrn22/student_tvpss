@@ -18,19 +18,11 @@ import com.beyondtech.studenttvpss.auth.ApiAuthenticationProvider;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-
-//	@Bean
-//	public AuthenticationFailureHandler authenticationFailureHandler() {
-//		return new CustomAuthenticationFailureHandler();
-//	}
-
-
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http.csrf(AbstractHttpConfigurer::disable).authenticationProvider(authenticationProvider())
-				.authorizeHttpRequests(authz -> authz
+				.authorizeHttpRequests(auth -> auth
 						.requestMatchers("/", "/resources/**", "/images/**", "/css/**", "/js/**").permitAll()
-						// Notice we removed /login from permitAll above
 						.requestMatchers("/dashboard", "/apply/**").authenticated().anyRequest().authenticated())
 				.formLogin(form -> form.loginPage("/login").loginProcessingUrl("/login").usernameParameter("email")
 						.passwordParameter("password").defaultSuccessUrl("/dashboard").failureUrl("/login?error=true")
