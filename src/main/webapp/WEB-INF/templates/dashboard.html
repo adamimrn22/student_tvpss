@@ -161,32 +161,36 @@ body {
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="tvpssApplication : ${tvpssApplications}">
-						<td th:text="${tvpssApplication.id}"></td>
-						<td th:text="${tvpssApplication.getPosition().getName()}"></td>
-						<td
-							th:text="${#dates.format(tvpssApplication.dateApplied, 'yyyy-MM-dd')}"></td>
-						<td><span
-							th:class="${tvpssApplication.status.name().equals('PENDING') ? 'status-pending' : 
-               tvpssApplication.status.name().equals('APPROVED') ? 'status-approved' : 'status-rejected'}"
-							th:text="${tvpssApplication.status}"></span></td>
-
-						<td><a
-							th:href="@{/apply/detail/{id}(id=${tvpssApplication.id})}"
-							class="btn btn-success btn-sm"> <svg
-									xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-									viewBox="0 0 24 24" fill="none" stroke="currentColor"
-									stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-									class="icon icon-tabler icons-tabler-outline icon-tabler-eye">
-				                    <path stroke="none" d="M0 0h24v24H0z"
-										fill="none" />
-				                    <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-				                    <path
-										d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
-                </svg> <span>Lihat</span>
-						</a></td>
-					</tr>
+ 				<tr th:if="${#lists.isEmpty(tvpssApplications)}">
+					<td colspan="5" class="text-center">Tiada permohonan dibuat</td>
+				</tr>
+ 				<tr th:each="tvpssApplication : ${tvpssApplications}">
+					<td th:text="${tvpssApplication.id}"></td>
+					<td th:text="${tvpssApplication.getPosition().getName()}"></td>
+					<td th:text="${#dates.format(tvpssApplication.dateApplied, 'yyyy-MM-dd')}"></td>
+					<td>
+						<span th:class="${tvpssApplication.status.name().equals('PENDING') ? 'status-pending' :
+							tvpssApplication.status.name().equals('APPROVED') ? 'status-approved' : 'status-rejected'}"
+							  th:text="${tvpssApplication.status}">
+						</span>
+					</td>
+					<td>
+						<a th:href="@{/apply/detail/{id}(id=${tvpssApplication.id})}"
+						   class="btn btn-success btn-sm">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+								 viewBox="0 0 24 24" fill="none" stroke="currentColor"
+								 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+								 class="icon icon-tabler icons-tabler-outline icon-tabler-eye">
+								<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+								<path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/>
+								<path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"/>
+							</svg>
+							<span>Lihat</span>
+						</a>
+					</td>
+				</tr>
 				</tbody>
+
 
 			</table>
 

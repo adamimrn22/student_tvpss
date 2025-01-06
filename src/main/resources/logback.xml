@@ -17,7 +17,7 @@
     </root>
 
     <!-- Logger configuration for specific packages -->
-    <logger name="com.beyondtech.tvpss" level="DEBUG">
+    <logger name="com.beyondtech.studenttvpss" level="DEBUG">
         <appender-ref ref="CONSOLE" />
     </logger>
 
