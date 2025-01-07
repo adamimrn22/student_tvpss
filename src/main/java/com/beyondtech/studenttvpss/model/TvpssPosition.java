@@ -10,9 +10,9 @@ public class TvpssPosition {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;  // The position name (e.g., Principal, Teacher)
+    private String name;
 
-    @Column(name = "school_code")  // Foreign key to the school table
+    @Column(name = "school_code")
     private String schoolCode;
 
     // Getters and Setters
