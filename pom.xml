@@ -125,28 +125,28 @@
 		</dependency>
 
 
-		<!-- SLF4J API dependency -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.7.30</version> <!-- This is fine for Logback -->
-		</dependency>
+<!--		&lt;!&ndash; SLF4J API dependency &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>org.slf4j</groupId>-->
+<!--			<artifactId>slf4j-api</artifactId>-->
+<!--			<version>1.7.30</version> &lt;!&ndash; This is fine for Logback &ndash;&gt;-->
+<!--		</dependency>-->
 
-		<!-- Logback classic (logging implementation) -->
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>1.2.9</version> <!-- This is a stable and widely used
-			version -->
-		</dependency>
+<!--		&lt;!&ndash; Logback classic (logging implementation) &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>ch.qos.logback</groupId>-->
+<!--			<artifactId>logback-classic</artifactId>-->
+<!--			<version>1.2.9</version> &lt;!&ndash; This is a stable and widely used-->
+<!--			version &ndash;&gt;-->
+<!--		</dependency>-->
 
-		<!-- Logback core (required by logback-classic) -->
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-core</artifactId>
-			<version>1.2.9</version> <!-- Make sure it matches the version of
-			logback-classic -->
-		</dependency>
+<!--		&lt;!&ndash; Logback core (required by logback-classic) &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>ch.qos.logback</groupId>-->
+<!--			<artifactId>logback-core</artifactId>-->
+<!--			<version>1.2.9</version> &lt;!&ndash; Make sure it matches the version of-->
+<!--			logback-classic &ndash;&gt;-->
+<!--		</dependency>-->
 
 
 		<dependency>
