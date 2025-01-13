@@ -3,6 +3,7 @@ package com.beyondtech.studenttvpss.model;
 public class Student {
 	private int id;
 	private String name;
+	private String gender;
 	private String identificationNumber;
 	private int age;
 	private String studentLevel;
@@ -23,6 +24,14 @@ public class Student {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	public String getIdentificationNumber() {

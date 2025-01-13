@@ -30,10 +30,16 @@ public class ApiAuthenticationProvider implements AuthenticationProvider {
 			String email = authentication.getName();
 			String enteredIdCard = authentication.getCredentials().toString();
 
+			System.out.println("Entered idcard: " + enteredIdCard);
+			System.out.println("Entered email: " + email);
+
+
 			logger.debug("Authentication attempt for email: {}", email);
 
 			String apiUrl = "http://localhost:8083/api/students/email/" + email;
 			String jsonResponse = restTemplate.getForObject(apiUrl, String.class);
+
+			System.out.println("apiUrl: " + apiUrl);
 
 			if (jsonResponse == null) {
 				throw new AuthenticationException("Unable to connect to student API") {
@@ -47,16 +53,21 @@ public class ApiAuthenticationProvider implements AuthenticationProvider {
 
 			if (response == null || !response.isSuccess() || response.getData() == null) {
 				logger.debug("Invalid response data: {}", response);
+				System.out.print("Invalid response data " + response);
+
 				throw new AuthenticationException("Invalid credentials") {
 				};
 			}
 
  			Student student = response.getData();
 			logger.debug("Retrieved Student: {}", student);
-
+			System.out.print("Retrieved Student: {}" + student);
  			if (student.getIdentificationNumber() == null || !student.getIdentificationNumber().equals(enteredIdCard)) {
+				System.out.print("Error Student: {}" + student);
+
 				throw new AuthenticationException("Invalid identification card") {
 				};
+
 			}
 
  			return new UsernamePasswordAuthenticationToken(student, // Principal (student object)
@@ -65,13 +76,18 @@ public class ApiAuthenticationProvider implements AuthenticationProvider {
 
 		} catch (JsonProcessingException e) {
 			logger.error("Error parsing API response: {}", e.getMessage());
+			System.out.print("Error Student: {}" + e.getMessage());
 			throw new AuthenticationException("Error processing authentication request") {
 			}; // Specific message for JSON errors
 		} catch (RestClientException e) {
 			logger.error("API request failed: {}", e.getMessage());
+			System.out.print("Error Student: {}" + e.getMessage());
+
 			throw new AuthenticationException("Unable to communicate with the student API") {
 			};
 		} catch (Exception e) {
+			System.out.print("Error Student: {}" + e.getMessage());
+
 			logger.error("Unexpected error: {}", e.getMessage());
 			throw new AuthenticationException("Authentication failed due to unexpected error") {
 			};
