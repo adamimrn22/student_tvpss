@@ -1,6 +1,7 @@
 package com.beyondtech.studenttvpss.controller;
 
-import java.util.Date;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -100,7 +101,9 @@ public class HomeController {
 		}
 
 		if (tvpssCrew.getDateApplied() == null) {
-			tvpssCrew.setDateApplied(new Date());
+			LocalDate localDate = LocalDate.now();
+			java.sql.Date sqlDate = java.sql.Date.valueOf(localDate);
+			tvpssCrew.setDateApplied(sqlDate);
 		}
 
 		tvpssCrewService.saveCrew(tvpssCrew);
